@@ -13,7 +13,7 @@ def weather(lon,lat):
     querystring = {"q": f"{lat},{lon}"}
 
     headers = {
-        "x-rapidapi-key": "54048b746fmshda22903440ad421p1034c5jsn64cb525b2b1b",
+        "x-rapidapi-key": "your rapid api key",
         "x-rapidapi-host": "weatherapi-com.p.rapidapi.com"
     }
 
@@ -32,7 +32,7 @@ def location_handler(update,context):
     datai = data['condition']['icon']
     update.message.reply_photo(photo=f"https:{datai}",caption=f"<b>Current temp</b>: {datac} C`\n<b>Day is</b>: {datad}",parse_mode="HTML")
 
-updater = Updater(token="7929600068:AAFto3G0SrraOM5_vK9phX5lcpMIAiA3wWY")
+updater = Updater(token="your telegram bot token")
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler(command="start",callback=start_message))
 dispatcher.add_handler(MessageHandler(Filters.location,location_handler))
